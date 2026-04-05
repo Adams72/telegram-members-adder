@@ -51,10 +51,10 @@ export default function ConfigForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
       {/* API ID */}
       <div>
-        <label className="block text-sm font-medium text-gray-300 mb-2">
+        <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
           API ID <span className="text-red-400">*</span>
         </label>
         <input
@@ -63,7 +63,7 @@ export default function ConfigForm({
           value={config.apiId}
           onChange={handleInputChange}
           placeholder="e.g., 26015605"
-          className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:border-telegram-blue focus:outline-none focus:ring-1 focus:ring-telegram-blue transition"
+          className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 sm:px-4 py-2 text-sm sm:text-base text-white placeholder-gray-500 focus:border-telegram-blue focus:outline-none focus:ring-1 focus:ring-telegram-blue transition"
           required
         />
         <p className="text-xs text-gray-400 mt-1">
@@ -73,7 +73,7 @@ export default function ConfigForm({
 
       {/* API Hash */}
       <div>
-        <label className="block text-sm font-medium text-gray-300 mb-2">
+        <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
           API Hash <span className="text-red-400">*</span>
         </label>
         <div className="relative">
@@ -83,13 +83,13 @@ export default function ConfigForm({
             value={config.apiHash}
             onChange={handleInputChange}
             placeholder="e.g., 32528923bcd3e948341aaf5fe2a250b7"
-            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:border-telegram-blue focus:outline-none focus:ring-1 focus:ring-telegram-blue transition"
+            className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 sm:px-4 py-2 text-sm sm:text-base text-white placeholder-gray-500 focus:border-telegram-blue focus:outline-none focus:ring-1 focus:ring-telegram-blue transition pr-10"
             required
           />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-300"
+            className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-300 text-sm"
           >
             {showPassword ? '✕' : '○'}
           </button>
@@ -101,7 +101,7 @@ export default function ConfigForm({
 
       {/* Phone Number */}
       <div>
-        <label className="block text-sm font-medium text-gray-300 mb-2">
+        <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
           Phone Number <span className="text-red-400">*</span>
         </label>
         <input
@@ -110,7 +110,7 @@ export default function ConfigForm({
           value={config.phone}
           onChange={handleInputChange}
           placeholder="+2348135169887"
-          className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:border-telegram-blue focus:outline-none focus:ring-1 focus:ring-telegram-blue transition"
+          className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 sm:px-4 py-2 text-sm sm:text-base text-white placeholder-gray-500 focus:border-telegram-blue focus:outline-none focus:ring-1 focus:ring-telegram-blue transition"
           required
         />
         <p className="text-xs text-gray-400 mt-1">
@@ -120,7 +120,7 @@ export default function ConfigForm({
 
       {/* Group ID */}
       <div>
-        <label className="block text-sm font-medium text-gray-300 mb-2">
+        <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
           Group ID or Link <span className="text-red-400">*</span>
         </label>
         <input
@@ -129,7 +129,7 @@ export default function ConfigForm({
           value={config.groupId}
           onChange={handleInputChange}
           placeholder="e.g., -1002502451021 or @groupname"
-          className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:border-telegram-blue focus:outline-none focus:ring-1 focus:ring-telegram-blue transition"
+          className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 sm:px-4 py-2 text-sm sm:text-base text-white placeholder-gray-500 focus:border-telegram-blue focus:outline-none focus:ring-1 focus:ring-telegram-blue transition"
           required
         />
         <p className="text-xs text-gray-400 mt-1">
@@ -139,14 +139,14 @@ export default function ConfigForm({
 
       {/* Delay */}
       <div>
-        <label className="block text-sm font-medium text-gray-300 mb-2">
+        <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1.5 sm:mb-2">
           Delay between requests (seconds)
         </label>
         <select
           name="delay"
           value={config.delay}
           onChange={handleInputChange}
-          className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:border-telegram-blue focus:outline-none focus:ring-1 focus:ring-telegram-blue transition"
+          className="w-full bg-gray-700 border border-gray-600 rounded-lg px-3 sm:px-4 py-2 text-sm sm:text-base text-white focus:border-telegram-blue focus:outline-none focus:ring-1 focus:ring-telegram-blue transition"
         >
           <option value={0}>No delay (faster, risky)</option>
           <option value={5}>5 seconds (recommended min)</option>
@@ -163,7 +163,7 @@ export default function ConfigForm({
       <button
         type="submit"
         disabled={isLoading || !csvReady}
-        className={`w-full py-3 rounded-lg font-medium transition-all mt-6 ${
+        className={`w-full py-2.5 sm:py-3 rounded-lg font-medium transition-all mt-4 sm:mt-6 text-sm sm:text-base ${
           isLoading || !csvReady
             ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
             : 'bg-telegram-blue hover:bg-blue-600 text-white cursor-pointer shadow-lg hover:shadow-xl'
@@ -180,7 +180,7 @@ export default function ConfigForm({
       </button>
 
       {!csvReady && (
-        <p className="text-center text-gray-400 text-sm">
+        <p className="text-center text-gray-400 text-xs sm:text-sm">
           Upload a CSV file to enable adding members
         </p>
       )}

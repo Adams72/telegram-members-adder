@@ -89,7 +89,7 @@ export default function FileUploader({
         onDragLeave={handleDrag}
         onDragOver={handleDrag}
         onDrop={handleDrop}
-        className={`relative border-2 border-dashed rounded-lg p-8 transition-colors ${
+        className={`relative border-2 border-dashed rounded-lg p-4 sm:p-6 lg:p-8 transition-colors ${
           dragActive
             ? 'border-telegram-blue bg-blue-950/20'
             : 'border-gray-600 hover:border-telegram-blue'
@@ -105,10 +105,10 @@ export default function FileUploader({
 
         <button
           onClick={() => fileInputRef.current?.click()}
-          className="w-full flex flex-col items-center gap-3"
+          className="w-full flex flex-col items-center gap-2 sm:gap-3"
         >
           <svg
-            className="w-12 h-12 text-telegram-blue"
+            className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-telegram-blue"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -121,10 +121,10 @@ export default function FileUploader({
             />
           </svg>
           <div className="text-center">
-            <p className="text-white font-medium">
+            <p className="text-white font-medium text-sm sm:text-base">
               Click to upload or drag and drop
             </p>
-            <p className="text-gray-400 text-sm mt-1">
+            <p className="text-gray-400 text-xs sm:text-sm mt-1">
               CSV file (Max 10MB)
             </p>
           </div>
@@ -132,10 +132,10 @@ export default function FileUploader({
       </div>
 
       {csvData && csvData.length > 0 && (
-        <div className="mt-4 bg-gray-700 rounded-lg p-4">
-          <div className="flex items-start justify-between">
+        <div className="mt-3 sm:mt-4 bg-gray-700 rounded-lg p-3 sm:p-4">
+          <div className="flex items-start justify-between gap-2">
             <div>
-              <p className="text-sm font-medium text-gray-200">
+              <p className="text-xs sm:text-sm font-medium text-gray-200">
                 Loaded Members
               </p>
               <p className="text-xs text-gray-400 mt-1">
@@ -144,7 +144,7 @@ export default function FileUploader({
             </div>
             <button
               onClick={() => onFileUpload([])}
-              className="text-xs text-gray-400 hover:text-red-400 transition-colors"
+              className="text-xs text-gray-400 hover:text-red-400 transition-colors whitespace-nowrap"
             >
               Clear
             </button>
@@ -153,8 +153,8 @@ export default function FileUploader({
       )}
 
       {error && (
-        <div className="mt-4 bg-red-900/20 border border-red-700 rounded-lg p-4">
-          <p className="text-red-300 text-sm">{error}</p>
+        <div className="mt-3 sm:mt-4 bg-red-900/20 border border-red-700 rounded-lg p-3 sm:p-4">
+          <p className="text-red-300 text-xs sm:text-sm">{error}</p>
         </div>
       )}
     </div>
